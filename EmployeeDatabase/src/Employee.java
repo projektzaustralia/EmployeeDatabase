@@ -1,4 +1,6 @@
-/*
+/* David Zammit
+ * S3449686
+ *
  * class Employee
  * 
  * This class is a demonstration of how the Employee type could

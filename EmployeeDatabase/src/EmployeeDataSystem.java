@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-/*
+/* David Zammit
+ * S3449686
+ * 
  * class EmployeeDataSystem
  * 
  * This class represents the portion of the Employee Data System 
