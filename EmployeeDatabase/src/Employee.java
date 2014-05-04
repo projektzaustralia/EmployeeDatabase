@@ -1,16 +1,7 @@
-/* David Zammit
- * S3449686
+/* 
+ * 
+ * Employee Class
  *
- * class Employee
- * 
- * This class is a demonstration of how the Employee type could
- * have been implemented so as to fulfill the requirements set out
- * in stage 1 of the Assignment 3 specification.
- * 
- * You are expected to work off the implementation of this Employee
- * class for your program in Assignment 3.
- * 
- * Written by Craig Hamilton (April 2014)
  */
 public class Employee
 {
