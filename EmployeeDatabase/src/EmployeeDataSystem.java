@@ -125,15 +125,12 @@ public class EmployeeDataSystem {
 			System.out.println("Employee Level: ");
 			char level = sc.next().toUpperCase().charAt(0);
 
-			Employee Employee = new Employee(employeeNumber, name, role, level);
-
-			for (int i = 0; i < employees.length; i++) {
-				if (i == 0) {
-					employees[i] = Employee;
-				}
-			}
+			Employee employee = new Employee(employeeNumber, name, role, level);
+			employees[employeeCount] = employee;
+			++employeeCount;
 			System.out.println("Would you like to add another employee?");
 			yesOrNo();
+			sc.nextLine();
 		} while (function == false);
 	}
 
@@ -149,12 +146,17 @@ public class EmployeeDataSystem {
 		System.out.println();
 		System.out.println("Display Employee Summary Feature Selected");
 		System.out.println();
-		
-	for (int i = 0; i < employees.length; i++)
-	{
-		//NEED TO CALL PRINTDETAILS() FROM THE EMPLOYEE CLASS
+
+		for (int i = 0; i < employeeCount; i++) {
+			System.out.println("Employee Number: " + i);
+			employees[i].printDetails();
+			System.out.println();
+		}
+		System.out.println();
+		pressEnterToContinue();
+
 	}
-	}
+
 	// updateEmployeeTitleAndRole()
 	//
 	// Implement the functionality required for Stage 2
@@ -222,6 +224,14 @@ public class EmployeeDataSystem {
 				System.out
 						.println("Invalid input, please select Y/N to continue.");
 			}
+		}
+	}
+
+	private static void pressEnterToContinue() {
+		System.out.println("Press enter to continue...");
+		String anyKey = sc.nextLine();
+		if (anyKey != null) {
+			function = false;
 		}
 	}
 }
