@@ -23,6 +23,8 @@ public class EmployeeDataSystem {
 	private static final Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		populateEmployeeDatabase();
+
 		char selection = '\0';
 		String userInput;
 
@@ -105,10 +107,6 @@ public class EmployeeDataSystem {
 
 	// addNewEmployee()
 	//
-	// Implement the functionality required for Stage 2
-	// requirement A in this method if you wish, otherwise you
-	// can implement the feature in the relevant case within
-	// the switch statement in the main() method above.
 
 	public static void addNewEmployee() {
 		do {
@@ -136,10 +134,6 @@ public class EmployeeDataSystem {
 
 	// displayEmployeeSummary()
 	//
-	// Implement the functionality required for Stage 2
-	// requirement B in this method if you wish, otherwise you
-	// can implement the feature in the relevant case within
-	// the switch statement in the main() method above.
 
 	public static void displayEmployeeSummary() {
 		// delete this code when you start implementing this feature
@@ -159,17 +153,32 @@ public class EmployeeDataSystem {
 
 	// updateEmployeeTitleAndRole()
 	//
-	// Implement the functionality required for Stage 2
-	// requirement C in this method if you wish, otherwise you
-	// can implement the feature in the relevant case within
-	// the switch statement in the main() method above.
 
 	public static void updateEmployeePayScaleAndRole() {
-		// delete this code when you start implementing this feature
+
 		System.out.println();
 		System.out
 				.println("Update Employee Pay Scale Level / Role Feature Selected");
 		System.out.println();
+		do {
+			System.out.print("Enter employee number: ");
+			String search = sc.nextLine();
+			for (int i = 0; i < employeeCount; i++) {
+				if (employees[i].getEmployeeNumber().equals(search)) {
+					System.out
+							.println("Enter the employee's new pay scale level: ");
+					char level = sc.nextLine().toUpperCase().charAt(0);
+					employees[i].updateLevel(level);
+					System.out
+							.println("Enter the employee's new role: ");
+					String role = sc.nextLine();
+					employees[i].setRole(role);
+				}
+			}
+			System.out.println("Would you like to run again? ");
+			yesOrNo();
+			sc.nextLine();
+		} while (function == false);
 	}
 
 	// addNewAcademicEmployee()
@@ -233,5 +242,20 @@ public class EmployeeDataSystem {
 		if (anyKey != null) {
 			function = false;
 		}
+	}
+
+	private static void populateEmployeeDatabase() {
+		employees[0] = new Employee("100001", "John", "Monkey", 'A');
+		employees[1] = new Employee("200002", "Mark", "Donkey", 'B');
+		employees[2] = new Employee("300003", "Luke", "Elephant", 'C');
+		employees[3] = new Employee("400004", "Matthew", "Giraffe", 'D');
+		employees[4] = new Employee("500005", "David", "Lion", 'E');
+		employees[5] = new Employee("600006", "Stephanie", "Echidna", 'A');
+		employees[6] = new Employee("700007", "Jennifer", "Kangaroo", 'B');
+		employees[7] = new Employee("800008", "Catherine", "Platypus", 'C');
+		employees[8] = new Employee("900009", "Damon", "Chipmunk", 'D');
+		employees[9] = new Employee("010010", "Elijah", "Walrus", 'E');
+		employees[10] = new Employee("110011", "Whinnie", "Bear", 'E');
+		employeeCount = 11;
 	}
 }
